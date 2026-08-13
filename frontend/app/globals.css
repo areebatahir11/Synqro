@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Fonts ---------- */
+  --font-display: "Sora", ui-sans-serif, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ---------- Canvas & surfaces ---------- */
+  --color-canvas: #f6f7f9;      /* cool paper-gray app background */
+  --color-surface: #ffffff;     /* cards, panels */
+  --color-surface-raised: #ffffff;
+  --color-border: #e2e5ea;
+  --color-border-strong: #cbd0d8;
+
+  /* ---------- Ink (text) ---------- */
+  --color-ink: #12161c;         /* near-black navy-ink, primary text */
+  --color-ink-muted: #5b6472;   /* secondary text */
+  --color-ink-faint: #8b95a5;   /* placeholders, disabled */
+
+  /* ---------- Brand ---------- */
+  --color-signal-50: #eef6f5;
+  --color-signal-100: #d5e9e7;
+  --color-signal-300: #7bb3af;
+  --color-signal-500: #1f6f6b;  /* primary brand — signal teal */
+  --color-signal-600: #195a57;
+  --color-signal-700: #134542;
+
+  --color-pulse-100: #fbe4d1;
+  --color-pulse-300: #f0af7c;
+  --color-pulse-500: #e8823c;   /* warm amber accent */
+  --color-pulse-600: #c96a2b;
+
+  /* ---------- Semantic: priority ramp ---------- */
+  --color-priority-low: #8b95a5;
+  --color-priority-medium: #e8a23c;
+  --color-priority-high: #e0722e;
+  --color-priority-critical: #d5473b;
+
+  /* ---------- Semantic: status ramp ---------- */
+  --color-status-todo: #8b95a5;
+  --color-status-in-progress: #1f6f6b;
+  --color-status-review: #e8a23c;
+  --color-status-completed: #3e8e5b;
+
+  /* ---------- Semantic: feedback ---------- */
+  --color-success: #3e8e5b;
+  --color-success-bg: #e7f4ec;
+  --color-danger: #d5473b;
+  --color-danger-bg: #fbeae8;
+  --color-warning: #e8a23c;
+  --color-warning-bg: #fdf3e3;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-card: 0 1px 2px rgba(18, 22, 28, 0.04), 0 1px 8px rgba(18, 22, 28, 0.04);
+  --shadow-popover: 0 4px 12px rgba(18, 22, 28, 0.08), 0 2px 4px rgba(18, 22, 28, 0.06);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-body);
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  /* Visible keyboard focus everywhere — accessibility floor */
+  :focus-visible {
+    outline: 2px solid var(--color-signal-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Mono "eyebrow" label pattern used for context labels, IDs, timestamps
+     throughout the app — e.g. "PROJECTS / AURELIA-REDESIGN" — this is the
+     recurring structural device that also carries real information. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
+}
