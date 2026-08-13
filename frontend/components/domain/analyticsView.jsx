@@ -13,7 +13,7 @@ import {
   DeliveryRhythmChart,
   GroupBreakdownBars,
   TimelinessDonut,
-} from "./AnalyticsCharts";
+} from "./analyticsCharts";
 
 function Eyebrow({ children }) {
   return <p className="eyebrow mb-1 text-xs uppercase tracking-wide text-ink-muted">{children}</p>;
