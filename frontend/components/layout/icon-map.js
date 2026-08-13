@@ -5,6 +5,7 @@ import {
   Bell,
   UserCircle,
   ListChecks,
+  Activity,
 } from "lucide-react";
 
 export const ICON_MAP = {
@@ -14,4 +15,5 @@ export const ICON_MAP = {
   Bell,
   UserCircle,
   ListChecks,
+  Activity,
 };
