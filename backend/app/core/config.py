@@ -5,7 +5,7 @@ class Settings(BaseSettings):
     supabase_url: str
     supabase_anon_key: str
     supabase_service_role_key: str
-    allowed_origins: str = "http://localhost:3000"
+    allowed_origins: str = "https://synqro-one.vercel.app/"
 
     class Config:
         env_file = ".env"
